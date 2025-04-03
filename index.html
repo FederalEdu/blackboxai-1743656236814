@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GTA-Style Open World Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            touch-action: none;
+            font-family: 'Arial', sans-serif;
+        }
+        #gameCanvas {
+            display: block;
+            background-color: #87CEEB;
+        }
+        #joystick {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+        #joystickKnob {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            top: 30px;
+            left: 30px;
+            transition: transform 0.1s ease;
+        }
+        #controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        .action-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            transition: all 0.2s ease;
+        }
+        .action-btn:active {
+            transform: scale(0.9);
+            background: rgba(0, 0, 0, 0.4);
+        }
+        #health-bar {
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- New HUD Elements -->
+    <div id="hud" class="fixed top-0 left-0 w-full bg-gradient-to-b from-black/50 to-transparent p-4 text-white">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="bg-gray-800 rounded-full p-2 w-32">
+                    <div id="health-bar" class="bg-red-500 h-4 rounded-full" style="width: 100%"></div>
+                </div>
+                <div id="mission" class="text-lg font-semibold">Find the red building</div>
+            </div>
+            <div id="minimap" class="w-24 h-24 bg-gray-800/80 rounded-lg border-2 border-gray-600"></div>
+        </div>
+    </div>
+    
+    <div id="joystick">
+        <div id="joystickKnob"></div>
+    </div>
+    
+    <div id="controls">
+        <div class="action-btn bg-red-500/80" id="punch-btn"><i class="fas fa-fist-raised"></i></div>
+        <div class="action-btn bg-blue-500/80" id="run-btn"><i class="fas fa-running"></i></div>
+        <div class="action-btn bg-green-500/80" id="car-btn"><i class="fas fa-car"></i></div>
+    </div>
+
+    <div id="vehicleControls" class="fixed bottom-32 right-4 hidden flex-col gap-4">
+        <button class="action-btn bg-red-600/80" id="brake-btn"><i class="fas fa-minus"></i></button>
+        <button class="action-btn bg-green-600/80" id="gas-btn"><i class="fas fa-plus"></i></button>
+        <button class="action-btn bg-yellow-600/80" id="lights-btn"><i class="fas fa-lightbulb"></i></button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
