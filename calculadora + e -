@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tentar</title>
+  
+    
+</head>
+<body>
+    <label for="calcular">Digite algo:</label>
+
+    /*aqui foi o inicio de tudo, a onde foi pedido um numero*/
+    <input type="text", id="1", placeholder="number 1">
+
+    /*aqui foi pedido uma operacao a se fazer*/
+    <input type="text", id="sel", placeholder="opercao">
+
+    /*aqui mais um numero, e uma calculadora simples*/
+    <input type="number", id="2", placeholder="number 2">
+
+    /*adicionei um botao de acao, ou melhor de evento*/
+    <button onclick="resultado()">resposta</button>
+
+    <h3>resultado: <span id="r">0</span></h3>
+    
+    <script >
+        function resultado() {
+            
+            var res1 = parseFloat(document.getElementById('1').value) || 0;
+            var res2 = parseFloat(document.getElementById('2').value) || 0;
+
+        sel = document.getElementById("resposta");
+
+        
+
+        if (sel = '-'){
+            var resposta = res1 + res2;        
+
+        }else if (sel = '+'){
+            var resposta = res1 - res2; 
+
+
+        }else {
+            
+        }
+
+
+        document.getElementById("r").innerText = resposta;
+
+        }
+        
+    </script>
+    
+
+</body>
+</html>
