@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="tentar()", id="botao" >+1</button>
+    
+    <h3 ><span id="contador">0</span></h3>
+    <script>
+        // Pega os elementos da tela
+        const botao = document.getElementById('botao');
+        const contadorSpan = document.getElementById('contador');
+
+        // Cria a variável que guarda o número de cliques
+        let cliques = 0;
+
+        // Adiciona a ação de clique ao botão
+        botao.addEventListener('click', function() {
+            cliques++; // Soma mais um
+            contadorSpan.textContent = cliques; // Atualiza o texto na tela
+        });
+    </script>
+    <style>
+      
+        
+        
+        
+        #contador{
+            font-size: 200px;
+            font-weight: bold;
+            color: #333333;
+            position: fixed;
+            right: 900px;
+            bottom: 150px;
+
+        }
+        .quadrado {
+            width: 500px;
+            height: 700px;
+            background-color: rgba(186, 47, 25, 0.5);caret-animation: auto;
+            position: fixed;
+            right: 700px;
+            bottom: 0px;
+            
+
+        }
+        #botao {
+            width: 150px;
+            height: 100px;
+            background-color: rgba(186, 47, 25, 0.5);
+
+            position: fixed;
+            right: 400px;
+            bottom: 250px;
+        }
+
+    </style>
+    <div class="quadrado"></div>
+   
+</body>
+</html>
